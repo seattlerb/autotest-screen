@@ -20,9 +20,10 @@ class Autotest::Screen
   DEFAULT_SCREEN_CMD = 'screen'
 
   SCREEN_COLOR = {
-    :black => 'dd',
-    :green => 'gk',
-    :red   => 'rw',
+    :black  => 'dd',
+    :green  => 'gw',
+    :yellow => 'yk',
+    :red    => 'rw',
   }
 
   def self.message(msg, color = :black)
@@ -56,24 +57,90 @@ class Autotest::Screen
     nil
   end
 
-  Autotest.add_hook :run do  |at|
-    message 'Run Tests' if execute?
+  # All blocks return false, to execute each of following blocks defined in user's own ".autotest".
+
+  # Do nothing.
+  #Autotest.add_hook :all_good do |at|
+  #  next false
+  #end
+
+  Autotest.add_hook :died do |at|
+    message "Exception occured. (#{at.class})", :red
+    next false
   end
+
+  # Do nothing.
+  #Autotest.add_hook :green do |at|
+  #  next false
+  #end
+
+  Autotest.add_hook :initialize do |at|
+    message "Run with #{at.class}" if execute?
+    next false
+  end
+
+  # Do nothing.
+  #Autotest.add_hook :interrupt do |at|
+  #  next false
+  #end
 
   Autotest.add_hook :quit do |at|
     clear if execute?
+    next false
   end
 
   Autotest.add_hook :ran_command do |at|
-    if execute? then
-      output = at.results.join
-      failed = output.scan(/^\s+\d+\) (?:Failure|Error):\n.*?\(.*?\)/)
-      if failed.size == 0 then
-        message "All Green", :green
+    next false unless execute?
+
+    output = at.results.join
+
+    case at.class.name
+    when 'Autotest::Rails'
+      results = output.scan(/(\d+)\s*failures?,\s*(\d+)\s*errors?/).first
+      num_failures, num_errors = results.map{|r| r.to_i}
+
+      if num_failures > 0 || num_errors > 0
+        @last_message = {:message => "Red F:#{num_failures} E:#{num_errors}", :color => :red}
       else
-        f,e = failed.partition { |s| s =~ /Failure/ }
-        message "Red F:#{f.size} E:#{e.size}", :red
+        @last_message = {:message => 'All Green', :color => :green}
+      end
+    when 'Autotest::RailsRspec'
+      results = output.scan(/(\d+)\s*examples?,\s*(\d+)\s*failures?(?:,\s*(\d+)\s*pendings?)?/).first
+      num_examples, num_failures, num_pendings = results.map{|r| r.to_i}
+
+      if num_failures > 0
+        @last_message = {:message => "Fail F:#{num_failures} P:#{num_pendings}", :color => :red}
+      elsif num_pendings > 0
+        @last_message = {:message => "Pend F:#{num_failures} P:#{num_pendings}", :color => :yellow}
+      else
+        @last_message = {:message => 'All Green', :color => :green}
       end
     end
+    next false
+  end
+
+  # Do nothing.
+  #Autotest.add_hook :red do |at|
+  #  next false
+  #end
+
+  # Do nothing.
+  #Autotest.add_hook :reset do |at|
+  #  next false
+  #end
+
+  Autotest.add_hook :run_command do |at|
+    message 'Running' if execute?
+    next false
+  end
+
+  # Do nothing.
+  #Autotest.add_hook :updated do |at, updated|
+  #  next false
+  #end
+
+  Autotest.add_hook :waiting do |at|
+    message @last_message[:message], @last_message[:color] if execute?
+    next false
   end
 end
