@@ -1,36 +1,38 @@
 = autotest_screen
 
-* FIX (url)
+* No url currently.
 
 == DESCRIPTION:
 
-FIX (describe your package)
+Autotest::Screen always shows autotest and autospec progress on GNU Screen's status line.
 
-== FEATURES/PROBLEMS:
+== FEATURES:
 
-* FIX (list of features or problems)
+* Shows autotest/autospec progress on status line.
 
-== SYNOPSIS:
+== SYNOPSIS
 
-  FIX (code sample of usage)
+$HOME/.autotest
+  require 'autotest/screen'
+  # Autotest::Screen.statusline = '%H %`%-w%{=b bw}%n %t%{-}%+w (your statusline)'
 
 == REQUIREMENTS:
 
-* FIX (list of requirements)
+* rubygems
 
 == INSTALL:
 
-* FIX (sudo gem install, anything else)
+* sudo gem install autotest_screen
 
 == LICENSE:
 
 (The MIT License)
 
-Copyright (c) 2009 FIX
+Copyright (c) 2009 MIKAMI Yoshiyuki
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
-'Software'), to deal in the Software without restriction, including
+"Software"), to deal in the Software without restriction, including
 without limitation the rights to use, copy, modify, merge, publish,
 distribute, sublicense, and/or sell copies of the Software, and to
 permit persons to whom the Software is furnished to do so, subject to
@@ -39,7 +41,7 @@ the following conditions:
 The above copyright notice and this permission notice shall be
 included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
 EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
 MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
 IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY
