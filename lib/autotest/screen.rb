@@ -2,14 +2,14 @@ require 'rubygems'
 require 'autotest'
 
 ##
-# Autotest::Screen is test result notify GNU Screen's statusline.
+# Autotest::Screen shows autotest/autospec progress on GNU Screen's status line.
 #
-# === screenshots
-# * <img src="http://f.hatena.ne.jp/images/fotolife/s/secondlife/20061109/20061109015543.png" />
-# * <img src="http://f.hatena.ne.jp/images/fotolife/s/secondlife/20061109/20061109015522.png" />
+# == FEATURES:
+# * Screenshots available <a href="http://f.hatena.ne.jp/yoshuki/autotest_screen/">here</a>.
 #
 # == SYNOPSIS
-#   require 'autotest/screen'
+# $HOME/.autotest
+#   require 'autotest_screen'
 #   # Autotest::Screen.statusline = '%H %`%-w%{=b bw}%n %t%{-}%+w (your statusline)'
 #
 
