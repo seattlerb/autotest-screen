@@ -5,7 +5,7 @@ require 'autotest'
 # Autotest::Screen shows autotest/autospec progress on GNU Screen's status line.
 #
 # == FEATURES:
-# * Screenshots are available in <a href="http://f.hatena.ne.jp/yoshuki/autotest_screen/">here</a>.
+# * Screenshots are available in here[http://f.hatena.ne.jp/yoshuki/autotest_screen/].
 #
 # == SYNOPSIS
 # $HOME/.autotest
