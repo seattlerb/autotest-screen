@@ -1,6 +1,6 @@
-=== 1.0.0 / 2009-03-01
+=== 4.0.0 / 2009-03-12
 
-* 1 major enhancement
+* 1 major enhancement:
 
-  * Birthday!
-
+  * Spinned off from "Zentest".
+    * Initially created by Yuichi Tateno in "Zentest 3.5.0".
