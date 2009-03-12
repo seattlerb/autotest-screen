@@ -6,7 +6,7 @@ require './lib/autotest/screen.rb'
 
 Hoe.new('autotest_screen', Autotest::Screen::VERSION) do |p|
   p.rubyforge_name = 'zentest'
-  # p.developer('Ryan Davis', 'ryand-ruby@zenspider.com') # FIX
+  p.developer('MIKAMI Yoshiyuki', 'yoshuki@saikyoline.jp')
 end
 
 # vim: syntax=Ruby
