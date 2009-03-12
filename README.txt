@@ -19,6 +19,7 @@ $HOME/.autotest
 == REQUIREMENTS:
 
 * rubygems
+* autotest
 
 == INSTALL:
 
