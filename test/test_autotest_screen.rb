@@ -1,6 +1,6 @@
 require 'test/unit'
 require 'rubygems'
-require 'autotest/screen'
+require 'autotest_screen'
 
 class TestAutotestScreen < Test::Unit::TestCase
   def test_all_added_hooks_called
