@@ -4,7 +4,7 @@
 
 == DESCRIPTION:
 
-Autotest::Screen always shows autotest and autospec progress on GNU Screen's status line.
+Autotest::Screen shows autotest/autospec progress on GNU Screen's status line.
 
 == FEATURES:
 
@@ -13,7 +13,7 @@ Autotest::Screen always shows autotest and autospec progress on GNU Screen's sta
 == SYNOPSIS
 
 $HOME/.autotest
-  require 'autotest/screen'
+  require 'autotest_screen'
   # Autotest::Screen.statusline = '%H %`%-w%{=b bw}%n %t%{-}%+w (your statusline)'
 
 == REQUIREMENTS:
