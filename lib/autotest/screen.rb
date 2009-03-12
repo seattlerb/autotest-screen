@@ -5,11 +5,11 @@ require 'autotest'
 # Autotest::Screen shows autotest/autospec progress on GNU Screen's status line.
 #
 # == FEATURES:
-# * Screenshots available <a href="http://f.hatena.ne.jp/yoshuki/autotest_screen/">here</a>.
+# * Screenshots are available in <a href="http://f.hatena.ne.jp/yoshuki/autotest_screen/">here</a>.
 #
 # == SYNOPSIS
 # $HOME/.autotest
-#   require 'autotest_screen'
+#   require 'autotest/screen'
 #   # Autotest::Screen.statusline = '%H %`%-w%{=b bw}%n %t%{-}%+w (your statusline)'
 #
 
