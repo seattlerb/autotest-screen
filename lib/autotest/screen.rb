@@ -57,6 +57,8 @@ class Autotest::Screen
     nil
   end
 
+  @last_message = {}
+
   # All blocks return false, to execute each of following blocks defined in user's own ".autotest".
 
   # Do nothing.
