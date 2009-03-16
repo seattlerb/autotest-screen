@@ -1,6 +1,6 @@
-=== 4.0.0 / 2009-03-12
+=== 4.0.0 / 2009-03-17
 
 * 1 major enhancement:
 
   * Spinned off from "Zentest".
-    * Initially created by Yuichi Tateno in "Zentest 3.5.0".
+    * Initially created by Yuichi Tateno at "Zentest 3.5.0".
