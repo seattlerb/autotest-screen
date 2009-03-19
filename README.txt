@@ -1,4 +1,4 @@
-= autotest-screen
+= autotest_screen
 
 * http://autotest-screen.rubyforge.org/
 
@@ -8,7 +8,7 @@ Autotest::Screen shows autotest/autospec progress on GNU Screen's status line.
 
 == FEATURES:
 
-* Screenshots are available in here[http://f.hatena.ne.jp/yoshuki/autotest-screen/].
+* Screenshots are available in here[http://f.hatena.ne.jp/yoshuki/autotest_screen/].
 
 == SYNOPSIS
 
@@ -23,7 +23,7 @@ $HOME/.autotest
 
 == INSTALL:
 
-* sudo gem install autotest-screen
+* sudo gem install autotest_screen
 
 == LICENSE:
 
