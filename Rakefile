@@ -5,7 +5,7 @@ require 'hoe'
 require './lib/autotest/screen.rb'
 
 Hoe.new('autotest_screen', Autotest::Screen::VERSION) do |p|
-  p.rubyforge_name = 'autotest_screen'
+  p.rubyforge_name = 'autotest-screen'
   p.developer('MIKAMI Yoshiyuki', 'yoshuki@saikyoline.jp')
 end
 
