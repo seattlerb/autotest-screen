@@ -14,7 +14,7 @@ require 'autotest'
 #
 
 class Autotest::Screen
-  VERSION = '4.0.0'
+  VERSION = '4.0.1'
 
   DEFAULT_STATUSLINE = '%H %`%-w%{=b bw}%n %t%{-}%+w'
   DEFAULT_SCREEN_CMD = 'screen'
@@ -23,7 +23,7 @@ class Autotest::Screen
     :black  => 'dd',
     :green  => 'gw',
     :yellow => 'yk',
-    :red    => 'rw',
+    :red    => 'rw'
   }
 
   def self.message(msg, color = :black)
@@ -106,7 +106,7 @@ class Autotest::Screen
       else
         @last_message = {:message => 'All Green', :color => :green}
       end
-    when 'Autotest::RailsRspec'
+    when 'Autotest::RailsRspec', 'Autotest::MerbRspec'
       results = output.scan(/(\d+)\s*examples?,\s*(\d+)\s*failures?(?:,\s*(\d+)\s*pendings?)?/).first
       num_examples, num_failures, num_pendings = results.map{|r| r.to_i}
 
