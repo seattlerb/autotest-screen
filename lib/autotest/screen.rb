@@ -106,7 +106,7 @@ class Autotest::Screen
       else
         @last_message = {:message => 'All Green', :color => :green}
       end
-    when 'Autotest::Rspec', 'Autotest::RailsRspec', 'Autotest::MerbRspec'
+    when 'Autotest::Rspec', 'Autotest::RailsRspec', 'Autotest::Rspec2', 'Autotest::RailsRspec2', 'Autotest::MerbRspec'
       results = output.scan(/(\d+)\s*examples?,\s*(\d+)\s*failures?(?:,\s*(\d+)\s*pendings?)?/).first
       num_examples, num_failures, num_pendings = results.map{|r| r.to_i}
 
