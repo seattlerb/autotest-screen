@@ -2,7 +2,7 @@ require 'rubygems'
 require 'autotest'
 
 ##
-# Autotest::Screen shows autotest/autospec progress on GNU Screen's status line.
+# Autotest::Screen displays autotest/autospec progress on GNU Screen's status line.
 #
 # == FEATURES:
 # * Screenshots are available in here[http://f.hatena.ne.jp/yoshuki/autotest_screen/].
@@ -14,7 +14,7 @@ require 'autotest'
 #
 
 class Autotest::Screen
-  VERSION = '4.0.2'
+  VERSION = '4.0.3'
 
   DEFAULT_STATUSLINE = '%H %`%-w%{=b bw}%n %t%{-}%+w'
   DEFAULT_SCREEN_CMD = 'screen'
@@ -62,36 +62,36 @@ class Autotest::Screen
   # All blocks return false, to execute each of following blocks defined in user's own ".autotest".
 
   # Do nothing.
-  #Autotest.add_hook :all_good do |at|
+  #Autotest.add_hook :all_good do |at, *args|
   #  next false
   #end
 
-  Autotest.add_hook :died do |at|
+  Autotest.add_hook :died do |at, *args|
     message "Exception occured. (#{at.class})", :red
     next false
   end
 
   # Do nothing.
-  #Autotest.add_hook :green do |at|
+  #Autotest.add_hook :green do |at, *args|
   #  next false
   #end
 
-  Autotest.add_hook :initialize do |at|
+  Autotest.add_hook :initialize do |at, *args|
     message "Run with #{at.class}" if execute?
     next false
   end
 
   # Do nothing.
-  #Autotest.add_hook :interrupt do |at|
+  #Autotest.add_hook :interrupt do |at, *args|
   #  next false
   #end
 
-  Autotest.add_hook :quit do |at|
+  Autotest.add_hook :quit do |at, *args|
     clear if execute?
     next false
   end
 
-  Autotest.add_hook :ran_command do |at|
+  Autotest.add_hook :ran_command do |at, *args|
     next false unless execute?
 
     output = at.results.join
@@ -106,7 +106,7 @@ class Autotest::Screen
       else
         @last_message = {:message => 'All Green', :color => :green}
       end
-    when 'Autotest::Rspec', 'Autotest::RailsRspec', 'Autotest::MerbRspec'
+    when 'Autotest::Rspec', 'Autotest::Rspec2', 'Autotest::RailsRspec', 'Autotest::RailsRspec2', 'Autotest::MerbRspec'
       results = output.scan(/(\d+)\s*examples?,\s*(\d+)\s*failures?(?:,\s*(\d+)\s*pendings?)?/).first
       num_examples, num_failures, num_pendings = results.map{|r| r.to_i}
 
@@ -122,26 +122,26 @@ class Autotest::Screen
   end
 
   # Do nothing.
-  #Autotest.add_hook :red do |at|
+  #Autotest.add_hook :red do |at, *args|
   #  next false
   #end
 
   # Do nothing.
-  #Autotest.add_hook :reset do |at|
+  #Autotest.add_hook :reset do |at, *args|
   #  next false
   #end
 
-  Autotest.add_hook :run_command do |at|
+  Autotest.add_hook :run_command do |at, *args|
     message 'Running' if execute?
     next false
   end
 
   # Do nothing.
-  #Autotest.add_hook :updated do |at, updated|
+  #Autotest.add_hook :updated do |at, *args|
   #  next false
   #end
 
-  Autotest.add_hook :waiting do |at|
+  Autotest.add_hook :waiting do |at, *args|
     message @last_message[:message], @last_message[:color] if execute?
     next false
   end
