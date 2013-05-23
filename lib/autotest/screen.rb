@@ -108,7 +108,7 @@ class Autotest::Screen
       end
     when 'Autotest::Rspec', 'Autotest::Rspec2', 'Autotest::RailsRspec', 'Autotest::RailsRspec2', 'Autotest::MerbRspec'
       results = output.scan(/(\d+)\s*examples?,\s*(\d+)\s*failures?(?:,\s*(\d+)\s*pendings?)?/).first
-      num_examples, num_failures, num_pendings = results.map{|r| r.to_i}
+      _, num_failures, num_pendings = results.map{|r| r.to_i}
 
       if num_failures > 0
         @last_message = {:message => "Fail F:#{num_failures} P:#{num_pendings}", :color => :red}
